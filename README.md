@@ -1,2 +1,2 @@
-# keshavaBanda-e-commerce-app-mean
+# e-commerce-app-mean
 E-Commerce application with Typescipt language (MEAN)
