@@ -3,6 +3,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { SignUpComponent } from './modules/auth/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './modules/admin/page-not-found/page-not-found.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -33,6 +34,20 @@ export const appRoutes: Routes = [
       // }
     ]
   },
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [authGuard],
+    // canActivateChild: [],
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () => import('../app/modules/admin/dashboard.routes')
+      }
+    ]
+  },
+
+
 
 
 
